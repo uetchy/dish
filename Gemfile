@@ -1,40 +1,73 @@
 source 'https://rubygems.org'
 
+ruby '2.1.2'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
-# Use sqlite3 as the database for Active Record
 gem 'sqlite3'
-# Use SCSS for stylesheets
+
+gem 'slim-rails'
 gem 'sass-rails', '~> 4.0.3'
-# Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer',  platforms: :ruby
-
-# Use jquery as the JavaScript library
 gem 'jquery-rails'
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+gem 'compass-rails'
+gem 'ceaser-easing'
+
+# Authentication
+gem 'devise'
+
+# Authorization
+gem 'cancancan'
+
+# Model helpers
+gem 'paranoia'
+
+# Pagination
+gem 'kaminari'
+
+# Ajax
 gem 'turbolinks'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.0'
-# bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0',          group: :doc
+gem 'jquery-turbolinks'
+gem 'nprogress-rails'
 
-# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring',        group: :development
+# Build JSON
+gem 'rabl'
+gem 'oj'
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+# Global settings
+gem 'settingslogic'
 
-# Use unicorn as the app server
-# gem 'unicorn'
+gem 'action_args'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+group :development do
+  gem 'quiet_assets'
+  gem 'letter_opener'
+  gem 'annotate'
+  gem 'spring'
 
-# Use debugger
-# gem 'debugger', group: [:development, :test]
+  # Test
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'faker'
+  gem 'faker-japanese'
+  gem 'capybara'
+  gem 'database_rewinder'
+  gem 'spring-commands-rspec'
 
+  # Improve error analytics
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'pry-rails'
+  gem 'hirb'
+  gem 'hirb-unicode'
+  gem 'awesome_print'
+  gem 'tapp'
+
+  # Detect vulnerability
+  gem 'brakeman', require: false
+
+  # Detect N+1
+  gem 'bullet'
+end
