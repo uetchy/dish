@@ -1,0 +1,23 @@
+doctype html
+html
+  head
+    title Dish
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  body
+    header.header
+      a.logo href='/'
+      nav.menu
+        ul.horiozntal
+          - if user_signed_in?
+            li ようこそ、#{current_user.email}さん
+            li = link_to "Sign out", destroy_user_session_path, method: :delete
+          - else
+            li = link_to "Sign in", new_session_path(:user)
+
+    wrapper
+      = yield
+
+    footer.footer
+      p 2014 All rights reversed
