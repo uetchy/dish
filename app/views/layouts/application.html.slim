@@ -2,11 +2,15 @@ doctype html
 html
   head
     title Dish
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+
+    = stylesheet_link_tag 'https://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.css'
+    = stylesheet_link_tag 'https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.2.2/leaflet.draw.css'
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+
     = csrf_meta_tags
+
   body
-    header.header
+    header.header.clayout
       a.logo href='/'
       nav.menu
         ul.horiozntal
@@ -16,8 +20,8 @@ html
           - else
             li = link_to "Sign in", new_session_path(:user)
 
-    wrapper
+    .wrapper
       = yield
 
-    footer.footer
+    footer.footer.clayout
       p 2014 All rights reversed

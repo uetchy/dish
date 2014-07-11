@@ -1,0 +1,14 @@
+.controlls
+  section.maps
+    #map
+
+  section.list
+    .clayout
+      h1 Search
+
+      #js-list
+
+= javascript_include_tag 'https://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.js'
+= javascript_include_tag 'https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.2.2/leaflet.draw.js'
+= javascript_include_tag 'https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-geodesy/v0.1.0/leaflet-geodesy.js'
+= javascript_include_tag 'application', 'data-turbolinks-track' => true
