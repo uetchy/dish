@@ -1,10 +1,10 @@
-class CreateRestaurants < ActiveRecord::Migration
+class CreateFavorites < ActiveRecord::Migration
   def change
-    create_table :restaurants do |t|
+    create_table :favorites do |t|
       t.string :name
       t.string :address
       t.float :lat
-      t.float :long
+      t.float :lng
 
       t.timestamps
     end
