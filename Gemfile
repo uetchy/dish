@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 
 ruby '2.1.2'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
 gem 'sqlite3'
@@ -24,7 +23,6 @@ gem 'cancancan'
 gem 'paranoia'
 
 # View improvements
-# gem 'kaminari'
 gem 'gravatar_image_tag'
 
 # Ajax
@@ -47,6 +45,9 @@ gem 'action_args'
 
 # Admin
 # gem 'rails_admin'
+
+# Foursquare
+gem 'foursquare2'
 
 group :development, :test do
   gem 'quiet_assets'
