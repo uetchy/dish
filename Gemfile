@@ -48,7 +48,7 @@ gem 'action_args'
 # Admin
 # gem 'rails_admin'
 
-group :development do
+group :development, :test do
   gem 'quiet_assets'
   gem 'meta_request'
   gem 'annotate'
