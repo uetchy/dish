@@ -10,18 +10,16 @@ html
     = csrf_meta_tags
 
   body
-    header.header.clayout
-      a.logo href='/'
-      nav.menu
-        ul.horiozntal
-          - if user_signed_in?
-            li ようこそ、#{current_user.email}さん
-            li = link_to "Sign out", destroy_user_session_path, method: :delete
-          - else
-            li = link_to "Sign in", new_session_path(:user)
-
     .wrapper
-      = yield
+      header.header.clayout
+        a.logo href='/'
+        nav.menu
+          ul.horiozntal
+            - if user_signed_in?
+              li ようこそ、#{current_user.email}さん
+              li = link_to "Sign out", destroy_user_session_path, method: :delete
+            - else
+              li = link_to "Sign in", new_session_path(:user)
 
-    footer.footer.clayout
-      p 2014 All rights reversed
+      .content
+        = yield

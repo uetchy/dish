@@ -195,6 +195,8 @@ input[type=text], input[type=email], input[type=password] {
 .wrapper {
   width: 100%;
   height: 100%;
+  display: inline-flex;
+  -webkit-flex-direction: column;
 }
 
 .header {
@@ -215,8 +217,17 @@ input[type=text], input[type=email], input[type=password] {
   }
 }
 
+.content {
+  width: 100%;
+  flex: 1 1 auto;
+  position: relative;
+}
+
 .controlls {
-  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
   @extend %clearfix;
 
   section {
@@ -230,6 +241,16 @@ input[type=text], input[type=email], input[type=password] {
 
   .list {
     width: 30%;
+    overflow: scroll;
+  }
+}
+
+.box-list {
+  li {
+    display: block;
+    background: #fff;
+    padding: 30px 15px;
+    @include box-shadow(0 0 4px #ededed);
   }
 }
 

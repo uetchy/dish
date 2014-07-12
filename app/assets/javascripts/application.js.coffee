@@ -5,7 +5,7 @@
 
 list = $('#js-list')
 
-map = L.mapbox.map('map', 'oame.iiciaej1').setView([35.685175, 139.752799], 10)
+map = L.mapbox.map('map', 'oame.iiciaej1').setView([35.685175, 139.752799], 10).addControl(L.mapbox.geocoderControl('oame.iiciaej1'));
 
 featureGroup = L.featureGroup().addTo(map)
 
@@ -27,13 +27,19 @@ showPolygonArea = (e) ->
   lat = e.layer.getLatLng().lat
   lng = e.layer.getLatLng().lng
 
+  list.empty()
+  list.append $('<li>').append("<b>Searching...</b>")
+
   $.ajax(
     type: 'GET',
     url: "/search.json?lat=#{lat}&lng=#{lng}&radius=#{radius}",
     dataType: 'json',
     success: (json) ->
+      list.empty()
       $.each json, (i, v) ->
-        list.append $('<li>').append(v["name"])
+        photo = v['venue']['photos']['groups'][0]['items'][0]
+        photo_url = [ photo['prefix'], '300x500', photo['suffix'] ].join('')
+        list.append $('<li>').append("<h3>#{v['venue']['name']}</h3><br/><img src='#{photo_url}' />")
   )
 
   featureGroup.clearLayers()

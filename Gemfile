@@ -48,6 +48,7 @@ gem 'action_args'
 
 # Foursquare
 gem 'foursquare2'
+gem 'faraday'
 
 group :development, :test do
   gem 'quiet_assets'
