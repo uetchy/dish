@@ -5,7 +5,8 @@
 
 list = $('#js-list')
 
-map = L.mapbox.map('map', 'oame.iiciaej1').setView([35.685175, 139.752799], 10).addControl(L.mapbox.geocoderControl('oame.iiciaej1'));
+map = L.mapbox.map('map', 'oame.iiciaej1').setView([35.685175, 139.752799], 10)
+map.addControl(L.mapbox.geocoderControl('oame.iiciaej1'));
 
 featureGroup = L.featureGroup().addTo(map)
 
@@ -22,6 +23,8 @@ drawControl = new L.Control.Draw({
   }
 }).addTo(map)
 
+markerLayer = L.mapbox.featureLayer().addTo(map)
+
 showPolygonArea = (e) ->
   radius = e.layer.getRadius()
   lat = e.layer.getLatLng().lat
@@ -36,10 +39,29 @@ showPolygonArea = (e) ->
     dataType: 'json',
     success: (json) ->
       list.empty()
+      markerLayer.clearLayers()
+
       $.each json, (i, v) ->
+        name = v['venue']['name']
+        lat  = v['venue']['location']['lat']
+        lng  = v['venue']['location']['lng']
         photo = v['venue']['photos']['groups'][0]['items'][0]
+
+        marker = L.marker([lat, lng], {
+          icon: L.mapbox.marker.icon({
+            'marker-color': '#f86767'
+          })
+          draggable: false
+          alt: i
+          bindPopup: "OK"
+        }).addTo(markerLayer)
+
         photo_url = [ photo['prefix'], '300x500', photo['suffix'] ].join('')
-        list.append $('<li>').append("<h3>#{v['venue']['name']}</h3><br/><img src='#{photo_url}' />")
+        element = $('<li>').append("<h3>#{v['venue']['name']}</h3><br/><img src='#{photo_url}' />")
+        element.attr 'id', i
+        list.append element
+
+      map.fitBounds(markerLayer.getBounds())
   )
 
   featureGroup.clearLayers()
@@ -50,3 +72,7 @@ showPolygonAreaEdited = (e) ->
 
 map.on 'draw:created', showPolygonArea
 map.on 'draw:edited', showPolygonAreaEdited
+
+markerLayer.on 'click', (e) ->
+  top = $("##{e.layer.options.alt}").offset().top
+  $('.list').scrollTop(top)

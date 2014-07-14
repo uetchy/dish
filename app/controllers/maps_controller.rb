@@ -10,7 +10,7 @@ class MapsController < ApplicationController
     data = get4sq "venues/explore", {
       ll: [lat, lng].join(','),
       radius: radius,
-      venuePhotos:1,
+      venuePhotos: 1,
       section: 'food'
     }
     response = data['response'].present? ? data['response']['groups'][0]['items'] : []
