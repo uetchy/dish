@@ -5,6 +5,9 @@ class CreateFavorites < ActiveRecord::Migration
       t.string :address
       t.float :lat
       t.float :lng
+      t.datetime :deleted_at
+
+      t.references :user
 
       t.timestamps
     end

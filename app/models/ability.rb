@@ -28,5 +28,13 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
+
+    user ||= User.new # guest user
+
+    can :create, User
+    can [:read, :update, :destroy], User, id: user.id
+
+    can :create, Favorite
+    can [:read, :update, :destroy], Favorite, user: user
   end
 end
