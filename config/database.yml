@@ -12,5 +12,9 @@ test:
   database: db/test.sqlite3
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+  adapter: postgresql
+  host: 172.17.0.19
+  port: 5432
+  encoding: utf8
+  database: dish
+  pool: 5

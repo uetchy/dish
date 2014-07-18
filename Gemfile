@@ -4,7 +4,6 @@ ruby '2.1.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
-gem 'sqlite3'
 
 gem 'slim-rails'
 gem 'sass-rails', '~> 4.0.3'
@@ -50,7 +49,13 @@ gem 'action_args'
 gem 'foursquare2'
 gem 'faraday'
 
+group :production do
+  gem 'pg'
+end
+
 group :development, :test do
+  gem 'sqlite3'
+
   gem 'quiet_assets'
   gem 'meta_request'
   gem 'annotate'
