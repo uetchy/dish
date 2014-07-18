@@ -13,8 +13,10 @@ test:
 
 production:
   adapter: postgresql
-  host: 172.17.0.19
-  port: 5432
+  host: <%= ENV['POSTGRES_PORT_5432_TCP_ADDR'] %>
+  port: <%= ENV['POSTGRES_PORT_5432_TCP_PORT'] %>
   encoding: utf8
-  database: dish
+  database: <%= ENV['POSTGRES_ENV_POSTGRESQL_DB'] %>
   pool: 5
+  username: <%= ENV['POSTGRES_ENV_POSTGRESQL_USER'] %>
+  password: <%= ENV['POSTGRES_ENV_POSTGRESQL_PASS'] %>
