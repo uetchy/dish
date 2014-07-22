@@ -22,6 +22,6 @@
 
 FactoryGirl.define do
   factory :user do
-    name "Name"
+    name 'Name'
   end
 end

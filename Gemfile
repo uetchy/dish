@@ -52,16 +52,17 @@ gem 'faraday'
 group :production do
   gem 'pg'
   gem 'rails_12factor'
+  gem 'therubyracer', platform: :ruby
 end
 
 group :development, :test do
   gem 'sqlite3'
-
   gem 'quiet_assets'
   gem 'meta_request'
   gem 'annotate'
   gem 'spring'
   gem 'spring-commands-rspec'
+  gem 'rubocop', require: false
 
   # Test
   gem 'rspec-rails'
