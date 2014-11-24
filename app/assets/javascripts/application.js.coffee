@@ -6,7 +6,7 @@
 list = $('#js-list')
 
 map = L.mapbox.map('map', 'oame.iiciaej1').setView([35.685175, 139.752799], 10)
-map.addControl(L.mapbox.geocoderControl('oame.iiciaej1'));
+map.addControl(L.mapbox.geocoderControl('oame.iiciaej1'))
 
 featureGroup = L.featureGroup().addTo(map)
 
