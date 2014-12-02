@@ -13,10 +13,5 @@ test:
 
 production:
   adapter: postgresql
-  host: <%= ENV['POSTGRES_PORT_5432_TCP_ADDR'] %>
-  port: <%= ENV['POSTGRES_PORT_5432_TCP_PORT'] %>
-  encoding: utf8
-  database: <%= ENV['POSTGRES_ENV_POSTGRESQL_DB'] %>
+  encoding: unicode
   pool: 5
-  username: <%= ENV['POSTGRES_ENV_POSTGRESQL_USER'] %>
-  password: <%= ENV['POSTGRES_ENV_POSTGRESQL_PASS'] %>
